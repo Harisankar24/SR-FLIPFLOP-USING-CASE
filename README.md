@@ -35,14 +35,47 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **Procedure**
 
 /* write all the steps invloved */
+ALGORITM: 
+Step1: Define the specifications and initialize the design. 
+Step2: Declare the name of the entity and architecture by using VHDL source code. 
+Step3: Write the source code in VERILOG. 
+Step4: Check the syntax and debug the errors if found, obtain the synthesis report. 
+Step5: Verify the output by simulating the source code. 
+Step6: Write all possible combinations of input using the test bench. 
+Step7: Obtain the place and route report. 
 
 **PROGRAM**
+module exp6(din, clk, rst, dout); 
+    input din; 
+    input clk; 
+    input rst; 
+    output dout; 
+  reg dout; 
+  reg [7:0]x; 
+  always @ (posedge(clk) or posedge(rst)) begin 
+  if (rst==1'b1) 
+  begin 
+  dout=8'hzz; 
+  end 
+  else 
+  begin 
+  x={x[6:0],din}; 
+  dout=x[7]; 
+  end 
+  end 
+  endmodule
 
 /* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
 */
 
 **RTL LOGIC FOR FLIPFLOPS**
+![Screenshot 2024-12-21 083718](https://github.com/user-attachments/assets/0d68c49e-6274-4452-8b5b-9792eb55f026)
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+![Screenshot 2024-12-21 084246](https://github.com/user-attachments/assets/08056b92-684f-408d-8fd4-cc6930b5ef6a)
+
 
 **RESULTS**
+Thus the OUTPUT’s of 8-bit shift register are verified by synthesizing and simulating the 
+VERILOG code.
